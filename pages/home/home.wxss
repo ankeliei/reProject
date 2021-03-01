@@ -1,0 +1,55 @@
+/* pages/home.wxss */
+.swiper {
+  /* 轮播图 */
+  height: 300rpx;
+  width: 100%;
+}
+.swiper image {
+  /* 轮播图图片 */
+  height: 100%;
+  width: 100%;
+}
+.news_item{
+  /* 文章列表条目 */
+  width: 100%;
+  height: 160rpx;
+  border: 3rpx solid #faca82;
+  border-radius: 0rpx;
+  padding: 0rpx;
+}
+.news_left{
+  width: 27%;
+  height: 100%;
+  float: left;
+}
+.news_left image{
+  width: 100%;
+  height: 100%;
+}
+.news_right{
+  margin-left: 30%;
+  height: 100%;
+}
+.news_date{
+  width: 100%;
+  font-size: 20rpx;
+  color: #ffffff;
+  display: block;
+  position: relative;
+  bottom: 25px;
+  opacity: 0.6;
+  background-color: #000000;
+  text-align: center;
+}
+.news_title {
+  width: 95%;
+  font-size: 50rpx;
+  font-weight:bold;
+}
+.news_data{
+  width: 98%;
+  font-size: 30rpx;
+  color: #323232;
+  text-align: right;
+  padding-top: 55rpx;
+}

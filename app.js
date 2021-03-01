@@ -9,6 +9,25 @@ App({
     // 登录
     wx.login({
       success: res => {
+        var code=res.code;
+        if(res.code)
+        {
+          console.log('code'+res.code);
+          wx.request({
+            url: this.globalData.urlPre+'onLogin.php',
+            data:{
+              code:res.code
+            },
+            success(res){
+              getApp().globalData.header.Cookie = 'JSESSIONID=' + res.data;
+              console.log(getApp().globalData.header);
+              console.log("res.data == "+res.data);
+            }
+          })
+        }
+        else{
+          console.log('获得用户登录态失败！'+res.errMsg)
+        }
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
@@ -34,6 +53,11 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    urlPre: "http://47.98.151.130:5000/",
+    userInfo: null,
+    header: {
+      "content-type": "application/x-www-form-urlencoded",
+      'Cookie': ''
+     }
   }
 })

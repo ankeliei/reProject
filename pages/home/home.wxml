@@ -1,0 +1,33 @@
+<!--pages/home.wxml-->
+<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">  
+  <block wx:for="{{headPictures}}" wx:key="key" wx:for-index="index" data-nid="{{index}}">
+    <swiper-item>
+      <image src="{{item.url}}" class="slide-image" mode="aspectFit" bindtap="picturesClick"/>  
+    </swiper-item>  
+  </block>  
+</swiper>
+
+<view class="news_list">
+  <!-- data-* 保存数据的属性,组件触发事件时,会将数据发送给事件处理函数-->
+  <!-- bind* 组件的事件,bindtap="newsClick"点击事件-->
+  <view class="news_item" wx:for="{{newsList}}" wx:key="key" data-nid="{{index}}" data-ntitle="{{item.title}}" data-nimg="{{item.titlePicture}}" data-nsource="{{item.author}}" bindtap="newsClick">
+    <view class="news_left">
+        <image mode="aspectFit" src="{{item.titlePicture}}"></image>
+        <text class="news_date">{{item.time}}</text>
+    </view>
+    <view class="news_right">
+        <text class="news_title">{{item.title}}</text>
+        <view class="news_data">
+          <text>
+            <!-- <image src="/images/like_small.png" mode="aspectFit"></image> -->
+            <!-- <text>{{item.likeCount}}</text> -->
+            <!-- <image src="/images/star_small.png" mode="aspectFit"></image> -->
+            <!-- <text>{{item.starCount}}</text> -->
+            <!-- <image src="/images/comment_small.png" mode="aspectFit"></image> -->
+            <!-- <text>{{item.commentCount}}</text> -->
+            <text>阅读: {{item.readCount}} 点赞: {{item.likeCount}} 收藏: {{item.starCount}} 来源:{{item.author}}</text>
+          </text>
+        </view>
+    </view>
+  </view>
+</view>

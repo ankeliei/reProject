@@ -4,18 +4,37 @@ const app = getApp()
 
 Page({
   data: {
+    userCount: null,
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
+  bindHomeTap() {
+    wx.reLaunch({
+      url: '../home/home'
     })
   },
   onLoad() {
+    // 设置小程序头图url
+    this.setData({
+      headImage: app.globalData.urlPre+"aa_static/apphead.jpg"
+    })
+    
+    // 获取您是第几位用户
+    var that = this
+    wx.request({
+      url: app.globalData.urlPre+"api/userCount.php",
+      header:getApp().globalData.header,
+      success(res){
+        that.setData({
+          userCount : res.data
+        })
+        console.log(res.data)
+      }
+    })
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -50,5 +69,6 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+    console.log(this.data.userInfo)
   }
 })
