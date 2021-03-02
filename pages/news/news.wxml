@@ -1,2 +1,24 @@
 <!--pages/news/news.wxml-->
-<text>pages/news/news.wxml---{{newsId}}</text>
+<image mode="aspectFill" class="headPicture" src="{{news.titlePicture}}"></image>
+<view class="body">
+  <view class="newsDetail">
+    <text class="readCount">阅览量：{{news.readCount}}</text>
+    <text class="author">来源：{{news.author}}</text>
+    <text class="newsDate">日期：{{news.time}}</text>
+  </view>
+  <text class="title">{{news.title}}</text>
+  <view class="horizon"></view>
+  <view class="main">
+    <block wx:for="{{news.nodes}}">
+      <block wx:if="{{item.kind == 'text' }}">
+        <text class="mainText">{{item.text}}</text>
+      </block>
+      <block wx:if="{{item.kind == 'image' }}">
+        <image mode="aspectFit" class="mainImage" src="{{item.text}}"></image>
+      </block>
+      <block wx:if="{{item.kind == 'video' }}">
+        <video custom-cache="{{false}}" class="mainVideo" src="{{item.text}}"></video>
+      </block>
+    </block>
+  </view>
+</view>

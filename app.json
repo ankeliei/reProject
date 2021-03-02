@@ -8,33 +8,34 @@
     "pages/home/home"
   ],
   "tabBar": {
+    "backgroundColor": "#14A01E",
+    "selectedColor": "#fff",
     "list": [
       {
         "pagePath": "pages/home/home",
         "text": "首页",
         "iconPath": "images/home.png",
-        "selectedIconPath": "images/home_s.png"
+        "selectedIconPath": "images/home_white.png"
       },
       {
         "pagePath": "pages/kinds/kinds",
         "text": "分类",
         "iconPath": "images/kinds.png",
-        "selectedIconPath": "images/kinds_s.png"
+        "selectedIconPath": "images/kinds_white.png"
       },
       {
         "pagePath": "pages/user/user",
         "text": "用户",
         "iconPath": "images/user.png",
-        "selectedIconPath": "images/user_s.png"
+        "selectedIconPath": "images/user_white.png"
       }
     ]
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#14A01E",
     "navigationBarTitleText": "渭北梨农",
     "navigationBarTextStyle": "black"
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
