@@ -1,22 +1,13 @@
-// pages/home.js
+// pages/newsByKinds/newsByKinds.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    headPictures: [],
-    newsList: []
   },
 
-  picturesClick: function(e){
-    var index = parseInt(e.currentTarget.dataset.nid)
-    console.log(index)
-    wx.navigateTo({
-      url: '/pages/news/news?newsId=' + this.data.headPictures[index].link,
-    })
-  },
-
+  // 文章条目的点击响应
   newsClick: function(e){
     var index = parseInt(e.currentTarget.dataset.nid)
     wx.navigateTo({
@@ -28,32 +19,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 设置新闻分类
     var that = this
-    wx.request({
-      url: getApp().globalData.urlPre+"api/getHeadPictures.php",
-      header: getApp().globalData.header,
-      success(res){
-        var i = 0
-        for(i=0; i < res.data.length; i++){
-          res.data[i].url = getApp().globalData.urlPre+"aa_static/" + res.data[i].url
-        }
-        that.setData({
-          headPictures: res.data
-        })
-      }
+    var kind = options.kind
+    that.setData({
+      "kind": kind
     })
 
+    // 请求分类文章列表
     wx.request({
-      url: getApp().globalData.urlPre+"api/getNewsList.php",
+      url: getApp().globalData.urlPre+"api/getNewsByKind.php",
       header: getApp().globalData.header,
+      data: {
+        "kind": that.data.kind
+      },
       success(res){
-        var i = 0
-        for(i=0; i < res.data.length; i++){
-          res.data[i].titlePicture = getApp().globalData.urlPre+"aa_static/" + res.data[i].titlePicture
+        if(res.data == "NoNews"){
+          return
         }
-        that.setData({
-          newsList : res.data
-        })
+        else{
+          var i = 0
+          for(i=0; i < res.data.length; i++){
+            res.data[i].titlePicture = getApp().globalData.urlPre+"aa_static/" + res.data[i].titlePicture
+          }
+          that.setData({
+            newsList : res.data
+          })
+        }
       }
     })
   },

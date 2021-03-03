@@ -1,12 +1,4 @@
-<!--pages/home.wxml-->
-<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">  
-  <block wx:for="{{headPictures}}" wx:key="key" wx:for-index="index" data-nid="{{index}}">
-    <swiper-item>
-      <image src="{{item.url}}" class="slide-image" mode="aspectFill" bindtap="picturesClick"/>  
-    </swiper-item>  
-  </block>  
-</swiper>
-
+<!--pages/newsByKinds/newsByKinds.wxml-->
 <view class="news_list">
   <!-- data-* 保存数据的属性,组件触发事件时,会将数据发送给事件处理函数-->
   <!-- bind* 组件的事件,bindtap="newsClick"点击事件-->

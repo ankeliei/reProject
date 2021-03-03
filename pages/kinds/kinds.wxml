@@ -1,1 +1,10 @@
 <!--pages/kinds/kinds.wxml-->
+<view class="container">
+  <view hover-class="kinds_item_hover" class="kinds_item" wx:for="{{kinds}}" wx:key="key" data-nid="{{index}}" bindtap="kindsClick">
+    <image mode="aspectFit" class="picture" src="{{item.url}}"></image>
+    <view class="texts">
+      <view class="kind_name">{{item.text}}</view>
+      <view class="kind_Count">文章总数：{{item.newsCount}}</view>
+    </view>
+  </view>
+</view>

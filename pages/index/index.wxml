@@ -2,13 +2,13 @@
 <view class="container">
   <view class="userinfo">
     <image class="userinfo-avatar" mode="cover" src="{{headImage}}"></image>
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击授权登录 </button>
-    <block wx:else>
+    <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击授权登录 </button>
+    <block wx:else> -->
       <!-- <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image> -->
-      <text class="userinfo-nickname">您是第 {{userCount}} 位用户</text>
+      <text class="userinfo-nickname">共有 {{userCount}} 位用户来访过</text>
       <view class="journey-container" bindtap="bindHomeTap">
         <text class="journey">开启小程序之旅</text>
       </view>
-    </block>
+    <!-- </block> -->
   </view>
 </view>

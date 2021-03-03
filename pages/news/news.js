@@ -7,6 +7,17 @@ Page({
   data: {
   },
 
+  pClick: function(){
+    wx.navigateTo({
+      url: '/pages/news/news?newsId=' + this.data.news.previous.id,
+    })
+  },
+  nClick: function(){
+    wx.navigateTo({
+      url: '/pages/news/news?newsId=' + this.data.news.next.id,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -33,6 +44,10 @@ Page({
           if(res.data.nodes[i].kind=="image" || res.data.nodes[i].kind=="video"){
             res.data.nodes[i].text = getApp().globalData.urlPre+"aa_static/" + res.data.nodes[i].text
           }
+        }
+        // 推荐内容的头图链接处理
+        for(var i=0, len = res.data.recommend.length; i < len; i++){
+          res.data.recommend[i].titlePicture = getApp().globalData.urlPre+"aa_static/" + res.data.recommend[i].titlePicture
         }
         // 写入data
         that.setData({

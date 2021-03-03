@@ -1,1 +1,50 @@
 /* pages/kinds/kinds.wxss */
+.container{
+  background-color: #edeef7;
+  justify-content: normal;
+  padding-top: 100rpx;
+  padding-bottom: auto;
+}
+.kinds_item{
+  margin-top: 60rpx;
+  background-color: #ffffff;
+  width: 600rpx;
+  display: block;
+  flex-direction: row;
+  height: 150rpx;
+  border-radius: 30rpx 30rpx 30rpx 30rpx;
+  box-shadow: #96c1d1 7rpx 7rpx 10rpx;
+}
+.kinds_item_hover{
+  margin-top: 60rpx;
+  background-color: #aaaaaa;
+  width: 595rpx;
+  display: block;
+  flex-direction: row;
+  height: 150rpx;
+  border-radius: 30rpx 30rpx 30rpx 30rpx;
+  box-shadow: #96c1d1 7rpx 7rpx 10rpx inset;
+}
+
+.picture{
+  width: 30%;
+  height: 80%;
+  padding-top: 15rpx;
+  float: left;
+}
+.texts{
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+  width: 60%;
+  height: 100%;
+  float: right;
+}
+.kind_name{
+  font-size: 48rpx;
+  font-weight: 500;
+}
+.kind_Count{
+  margin-right: 10rpx;
+  padding-top: 30rpx;
+  text-align: end;
+}

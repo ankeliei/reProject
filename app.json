@@ -5,15 +5,16 @@
     "pages/user/user",
     "pages/news/news",
     "pages/kinds/kinds",
-    "pages/home/home"
+    "pages/home/home",
+    "pages/newsByKinds/newsByKinds"
   ],
   "tabBar": {
-    "backgroundColor": "#14A01E",
+    "backgroundColor": "#96bb7c",
     "selectedColor": "#fff",
     "list": [
       {
         "pagePath": "pages/home/home",
-        "text": "首页",
+        "text": "推荐",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home_white.png"
       },
@@ -22,20 +23,15 @@
         "text": "分类",
         "iconPath": "images/kinds.png",
         "selectedIconPath": "images/kinds_white.png"
-      },
-      {
-        "pagePath": "pages/user/user",
-        "text": "用户",
-        "iconPath": "images/user.png",
-        "selectedIconPath": "images/user_white.png"
       }
     ]
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#14A01E",
+    "navigationBarBackgroundColor": "#96bb7c",
     "navigationBarTitleText": "渭北梨农",
     "navigationBarTextStyle": "black"
   },
+  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

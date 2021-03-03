@@ -14,11 +14,39 @@
         <text class="mainText">{{item.text}}</text>
       </block>
       <block wx:if="{{item.kind == 'image' }}">
-        <image mode="aspectFit" class="mainImage" src="{{item.text}}"></image>
+        <image lazy-load="true" mode="aspectFit" class="mainImage" src="{{item.text}}"></image>
       </block>
       <block wx:if="{{item.kind == 'video' }}">
         <video custom-cache="{{false}}" class="mainVideo" src="{{item.text}}"></video>
       </block>
     </block>
   </view>
+  <view>
+    <view class="p_n" hover-class="p_n_hover" wx:if="{{news.previous.id}}" bindtap="pClick">
+      上一篇：{{news.previous.title}}
+    </view>
+    <view class="p_n" hover-class="p_n_hover" wx:if="{{news.next}}" bindtap="nClick">
+      下一篇：{{news.next.title}}
+    </view>
+  </view>
+  <!-- <view class="horizon"></view> -->
+  <text class="more">更多推荐</text>
+  <view class="news_list">
+  <!-- data-* 保存数据的属性,组件触发事件时,会将数据发送给事件处理函数-->
+  <!-- bind* 组件的事件,bindtap="newsClick"点击事件-->
+  <view class="news_item" hover-class="news_item_hover" wx:for="{{news.recommend}}" wx:key="key" data-nid="{{index}}" data-ntitle="{{item.title}}" data-nimg="{{item.titlePicture}}" data-nsource="{{item.author}}" bindtap="newsClick">
+    <view class="news_left">
+        <image lazy-load="true" mode="aspectFill" src="{{item.titlePicture}}"></image>
+        <text class="news_date">{{item.time}}</text>
+    </view>
+    <view class="news_right">
+        <text class="news_title">{{item.title}}</text>
+        <view class="news_data">
+          <text>
+            <text>阅读: {{item.readCount}} 来源:{{item.author}}</text>
+          </text>
+        </view>
+    </view>
+  </view>
+</view>
 </view>

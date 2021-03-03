@@ -1,17 +1,5 @@
-/* pages/home.wxss */
-@import "/lib/style/newsList.wxss";
-
-.swiper {
-  /* 轮播图 */
-  /* background-color: #fad586; */
-  height: 300rpx;
-  width: 100%;
-  box-shadow: 2px 2px 5px #888888;
-}
-.swiper image {
-  /* 轮播图图片 */
-  height: 100%;
-  width: 100%;
+page{
+  background-color: #edeef7;
 }
 .news_item{
   background-color: #ffffff;

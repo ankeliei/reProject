@@ -1,6 +1,8 @@
 /* pages/news/news.wxss */
+@import "/lib/style/newsList.wxss";
 .headPicture{
   height: 500rpx;
+  width: 100%;
 }
 .newsDetail{
   margin-left: 3%;
@@ -45,4 +47,22 @@
 .main{
   width: 710rpx;
   margin: auto;
+}
+
+.more{
+  color: #888;
+  display: block;
+  text-align: center;
+}
+
+.p_n{
+  margin: 20rpx 0;
+  color: blue;
+  text-decoration: underline;
+}
+
+.p_n_hover{
+  margin: 20rpx 0;
+  color: blueviolet;
+  text-decoration: underline;
 }
