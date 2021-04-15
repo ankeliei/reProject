@@ -29,24 +29,25 @@
       下一篇：{{news.next.title}}
     </view>
   </view>
-  <!-- <view class="horizon"></view> -->
-  <text class="more">更多推荐</text>
-  <view class="news_list">
-  <!-- data-* 保存数据的属性,组件触发事件时,会将数据发送给事件处理函数-->
-  <!-- bind* 组件的事件,bindtap="newsClick"点击事件-->
-  <view class="news_item" hover-class="news_item_hover" wx:for="{{news.recommend}}" wx:key="key" data-nid="{{index}}" data-ntitle="{{item.title}}" data-nimg="{{item.titlePicture}}" data-nsource="{{item.author}}" bindtap="newsClick">
-    <view class="news_left">
-        <image lazy-load="true" mode="aspectFill" src="{{item.titlePicture}}"></image>
-        <text class="news_date">{{item.time}}</text>
-    </view>
-    <view class="news_right">
-        <text class="news_title">{{item.title}}</text>
-        <view class="news_data">
-          <text>
-            <text>阅读: {{item.readCount}} 来源:{{item.author}}</text>
-          </text>
+  <block wx:if="{{news.recommend != '0'}}">
+    <text class="more">更多推荐</text>
+    <view class="news_list">
+    <!-- data-* 保存数据的属性,组件触发事件时,会将数据发送给事件处理函数-->
+    <!-- bind* 组件的事件,bindtap="newsClick"点击事件-->
+      <view class="news_item" hover-class="news_item_hover" wx:for="{{news.recommend}}" wx:key="key" data-nid="{{index}}" data-ntitle="{{item.title}}" data-nimg="{{item.titlePicture}}" data-nsource="{{item.author}}" bindtap="newsClick">
+        <view class="news_left">
+            <image lazy-load="true" mode="aspectFill" src="{{item.titlePicture}}"></image>
+            <text class="news_date">{{item.time}}</text>
         </view>
+        <view class="news_right">
+            <text class="news_title">{{item.title}}</text>
+            <view class="news_data">
+              <text>
+                <text>阅读: {{item.readCount}} 来源:{{item.author}}</text>
+              </text>
+            </view>
+        </view>
+      </view>
     </view>
-  </view>
-</view>
+  </block>
 </view>

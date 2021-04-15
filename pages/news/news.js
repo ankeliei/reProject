@@ -17,6 +17,12 @@ Page({
       url: '/pages/news/news?newsId=' + this.data.news.next.id,
     })
   },
+  newsClick: function(e){
+    var index = parseInt(e.currentTarget.dataset.nid)
+    wx.navigateTo({
+      url: '/pages/news/news?newsId=' + this.data.news.recommend[index].id,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -46,8 +52,10 @@ Page({
           }
         }
         // 推荐内容的头图链接处理
-        for(var i=0, len = res.data.recommend.length; i < len; i++){
-          res.data.recommend[i].titlePicture = getApp().globalData.urlPre+"aa_static/" + res.data.recommend[i].titlePicture
+        if(res.data.recommend!=0){
+          for(var i=0, len = res.data.recommend.length; i < len; i++){
+            res.data.recommend[i].titlePicture = getApp().globalData.urlPre+"aa_static/" + res.data.recommend[i].titlePicture
+          }
         }
         // 写入data
         that.setData({

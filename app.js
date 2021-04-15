@@ -18,6 +18,7 @@ App({
               code:res.code
             },
             success(res){
+              // getApp().globalData.header.Cookie = 'JSESSIONID=' + res.data.sessionid;
               getApp().globalData.header.Cookie = 'JSESSIONID=' + res.data;
               console.log(getApp().globalData.header);
               console.log("res.data == "+res.data);
@@ -62,6 +63,7 @@ App({
   },
 
   globalData: {
+    // urlPre: "https://www.ankeliei.cn/",
     urlPre: "http://47.98.151.130:5000/",
     userInfo: null,
     header: {
